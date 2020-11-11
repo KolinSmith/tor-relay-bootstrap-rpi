@@ -1,0 +1,31 @@
+## The IP address or hostname for incoming connections (leave commented and Tor will guess)
+#Address noname.example.com
+
+## Set the nickname of this relay
+#Nickname ididnteditheconfig
+
+## Set your own contact info
+#ContactInfo 0xFFFFFFFF Random Person <nobody AT example dot com>
+
+## If you control multiple relays, include then in the family
+#MyFamily $keyid,$keyid,...
+
+ORPort 443
+DirPort 8080
+
+# We assume you have max upload speed of 10 mbps and want to dedicate
+# maximum of half of it to Tor traffic, but allow to burst to all of it.
+RelayBandwidthRate 512 KBytes
+RelayBandwidthBurst 1024 KBytes
+#AccountingMax 32 GB
+#AccountingStart day 00:00
+
+SocksPort 0
+SocksPolicy reject *
+
+ExitPolicy reject *:*
+
+Log notice file /var/log/tor/notices.log
+DataDirectory /var/lib/tor
+RunAsDaemon 1
+

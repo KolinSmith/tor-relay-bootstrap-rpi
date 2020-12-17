@@ -31,8 +31,7 @@ apt-get install -y miniupnpc
 cat <<EOF >/usr/local/bin/update-upnp-forwards
 #!/bin/bash
 upnpc -e 'Forward OrPort'  -r 8443 TCP  >/dev/null
-upnpc -e 'Forward DirPort' -r 9030 TCP >/dev/null
-upnpc -e 'Forward ControlPort' -r 9051 TCP >/dev/null
+upnpc -e 'Forward DirPort' -r 8444 TCP >/dev/null
 EOF
 chmod a+x /usr/local/bin/update-upnp-forwards
 

@@ -148,7 +148,7 @@ RelayBandwidthBurst 3000 KBytes # But allow bursts up to 3MB
 
 ## Uncomment this to mirror directory information for others. Please do
 ## if you have enough bandwidth.
-DirPort 9030 # what port to advertise for directory connections
+DirPort 8444 # what port to advertise for directory connections
 ## If you want to listen on a port other than the one advertised in
 ## DirPort (e.g. to advertise 80 but bind to 9091), you can do it as
 ## follows.  below too. You'll need to do ipchains or other port

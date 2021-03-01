@@ -10,24 +10,25 @@ PWD="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # update software
 echo "== Updating software"
-apt-get update
-apt-get dist-upgrade -y
+apt update -y
+apt upgrade -y
+apt dist-upgrade -y
 
 # install tor and related packages
 echo "== Installing Tor and related packages"
-apt-get install -y tor tor-arm tor-geoipdb
+apt install -y tor tor-arm tor-geoipdb
 
 # configure tor
 cp $PWD/etc/tor/torrc /etc/tor/torrc
 
 # configure automatic updates
 echo "== Configuring unattended upgrades"
-apt-get install -y unattended-upgrades apt-listchanges
+apt install -y unattended-upgrades apt-listchanges
 cp $PWD/etc/apt/apt.conf.d/20auto-upgrades /etc/apt/apt.conf.d/20auto-upgrades
 
 # configure upnpc
 echo "== Configuring port forwarding"
-apt-get install -y miniupnpc
+apt install -y miniupnpc
 cat <<EOF >/usr/local/bin/update-upnp-forwards
 #!/bin/bash
 upnpc -e 'Forward OrPort'  -r 8443 TCP  >/dev/null
